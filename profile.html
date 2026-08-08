@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Profile</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+body{
+    font-family:Arial,sans-serif;
+    background:#f4f7fb;
+}
+
+.profile-box{
+    max-width:600px;
+    margin:80px auto;
+    background:#fff;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,.1);
+    text-align:center;
+}
+
+.profile-img{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    object-fit:cover;
+    margin-bottom:20px;
+}
+
+.info{
+    text-align:left;
+    margin-top:25px;
+}
+
+.info p{
+    margin:15px 0;
+    font-size:18px;
+}
+
+.btn{
+    margin-top:25px;
+    padding:12px 30px;
+    border:none;
+    border-radius:10px;
+    background:#2563eb;
+    color:#fff;
+    cursor:pointer;
+}
+
+.logout-btn{
+    background:#dc2626;
+    margin-left:10px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="profile-box">
+
+<img src="images/user.png"
+class="profile-img"
+id="profileImage">
+
+<h2 id="profileName">
+Student Name
+</h2>
+
+<p id="profileEmail">
+student@email.com
+</p>
+
+<div class="info">
+
+<p><b>Course :</b>
+<span id="courseName">
+Not Selected
+</span>
+</p>
+
+<p><b>Member Since :</b>
+<span id="joinDate">
+--
+</span>
+</p>
+
+</div>
+
+<button
+class="btn"
+onclick="window.location='index.html'">
+
+Home
+
+</button>
+
+<button
+class="btn logout-btn"
+onclick="logout()">
+
+Logout
+
+</button>
+
+</div>
+
+<script src="script.js"></script>
+
+<script>
+
+document.getElementById("profileName").innerText=
+localStorage.getItem("studentName")||"Student";
+
+document.getElementById("profileEmail").innerText=
+localStorage.getItem("studentEmail")||"No Email";
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1409 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Computer Fundamentals</title>
+
+  <style>
+   /* ===== RESET ===== */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial,sans-serif;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:linear-gradient(135deg,#dbeafe,#eef2ff,#f0f9ff);
+  color:#1e293b;
+  line-height:1.5;
+  padding:5px;
+}
+
+/* ===== CONTAINER ===== */
+
+.container{
+  max-width:100px;
+  max-width:2000px;
+  margin:auto;
+}
+
+/* ===== MAIN TITLE ===== */
+
+.container h1{
+  text-align:center;
+  font-size:48px;
+  color:#0f172a;
+  margin-bottom:35px;
+  font-weight:800;
+}
+
+/* ===== SECTION ===== */
+
+.section{
+  background:white;
+  padding:10px;
+  border-radius:25px;
+  margin-bottom:25px;
+  box-shadow:0 8px 25px rgba(0,0,0,0.08);
+}
+
+/* ===== HEADINGS ===== */
+
+.heading{
+  background:linear-gradient(135deg,#0056d6,#38bdf8);
+  color:white;
+  padding:14px 22px;
+  border-radius:14px;
+  font-size:28px;
+  font-weight:bold;
+  margin-bottom:25px;
+}
+
+.purple{
+  background:linear-gradient(135deg,#7c3aed,#c026d3);
+}
+
+.green-title{
+  background:#16a34a;
+  color:white;
+  display:inline-block;
+  padding:10px 18px;
+  border-radius:10px;
+  margin-top:20px;
+  margin-bottom:15px;
+  font-size:22px;
+  font-weight:bold;
+}
+
+/* ===== TEXT ===== */
+
+p{
+  font-size:17px;
+  margin-bottom:12px;
+}
+
+ul{
+  margin-left:25px;
+  margin-top:10px;
+}
+
+li{
+  margin-bottom:10px;
+  font-size:17px;
+}
+
+.red{
+  color:red;
+  font-weight:bold;
+}
+
+/* ===== INTRO ===== */
+
+.intro-wrapper{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
+  align-items:flex-start;
+}
+
+.definition{
+  background:#f8fafc;
+  padding:10px;
+  border-left:5px solid #2563eb;
+  border-radius:12px;
+  margin-top:10px;
+}
+
+/* ===== IMAGES ===== */
+
+.top-images{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:20px;
+}
+
+.img-box{
+  background:#fff;
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 4px 12px rgba(0,0,0,0.1);
+  text-align:center;
+}
+
+.img-box img{
+  width:100%;
+  height:260px;
+  object-fit:cover;
+}
+
+.caption{
+  padding:12px;
+  font-weight:bold;
+}
+
+/* ===== COMMON IMAGE STYLE ===== */
+
+img{
+  max-width:100%;
+  border-radius:10px;
+  margin-top:5px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.12);
+}
+
+/* ===== MULTI IMAGE ===== */
+
+.multi-img{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:18px;
+  margin-top:20px;
+}
+
+.multi-img img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+}
+
+/* ===== ADVANTAGES ===== */
+
+.adv-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:25px;
+}
+
+.adv-box{
+  background:#f8fafc;
+  padding:px;
+  border-radius:px;
+ box-shadow:0 0px 0px rgba(0,0,0,0.08);
+}
+
+.box-title{
+  font-size:24px;
+  font-weight:bold;
+  color:white;
+  padding:12px 18px;
+  border-radius:12px;
+  margin-bottom:18px;
+}
+
+.green{
+  background:#16a34a;
+}
+
+.redbg{
+  background:#dc2626;
+}
+
+.pc-img{
+  margin-top:20px;
+  width:100%;
+  border-radius:15px;
+}
+
+/* ===== GENERATION CARDS ===== */
+
+gen-card{
+  background:#ffffff;
+  padding:0px;
+  border-radius:20px;
+  margin-top:25px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.08);
+}
+
+.gen-card h3{
+  color:#0056d6;
+  margin-bottom:15px;
+  font-size:26px;
+}
+
+.gen-card img{
+  width:100%;
+  max-width:280px;
+  height:200px;
+  object-fit:cover;
+  margin:0px;
+}
+
+/* ===== PARTS ===== */
+
+.parts-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:10px;
+}
+
+.part-card{
+  background:#f8fafc;
+  padding:0px;
+  border-radius:18px;
+  text-align:center;
+  box-shadow:0 4px 10px rgba(0,0,0,0.08);
+}
+
+/* ===== TABLE ===== */
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:20px;
+}
+
+table th{
+  background:#0d47a1;
+  color:white;
+  padding:14px;
+  border:1px solid #ccc;
+}
+
+table td{
+  padding:14px;
+  border:1px solid #ccc;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media(max-width:900px){
+
+  .intro-wrapper{
+    grid-template-columns:1fr;
+  }
+
+  .adv-grid{
+    grid-template-columns:1fr;
+  }
+
+  .container h1{
+    font-size:38px;
+  }
+
+  .heading{
+    font-size:22px;
+  }
+
+}
+
+@media(max-width:600px){
+
+  body{
+    padding:10px;
+  }
+
+  .section{
+    padding:20px;
+  }
+
+  .container h1{
+    font-size:30px;
+  }
+
+  p,li{
+    font-size:15px;
+  }
+
+  .gen-card img{
+    max-width:100%;
+    height:auto;
+  }
+
+}
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>COMPUTER FUNDAMENTALS</h1>
+    <!-- INTRODUCTION -->
+
+    <div class="section">
+      <div class="heading">1. INTRODUCTION</div>
+
+      <div class="intro-wrapper">
+
+        <div class="intro-left">
+
+          <ul>
+            <li>The word “Computer” comes from the Latin word “Compute” which means “to calculate”.</li>
+
+            <li>
+              It is believed that the Analytical Engine was the first computer which was invented by
+              <span class="red">Charles Babbage</span> in 1837.
+            </li>
+          </ul>
+
+          <div class="green-title">What is Computer?</div>
+
+          <div class="definition">
+            Computer is a programmable electronic device that accepts raw data as input and processes it with a set of
+            instructions (a program) to produce the result as output. It performs tasks, solves problems, and provides
+            information through a combination of hardware and software components.
+          </div>
+
+        </div>
+
+        <div>
+
+          <div class="top-images">
+
+            <div class="img-box">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Charles_Babbage_-_1860.jpg">
+              <div class="caption">Charles Babbage</div>
+            </div>
+
+            <div class="img-box">
+              <img src="C:\Users\Gokul Basumatary\Desktop\ECE-Website\img/ChatGPT Image May 16, 2026, 08_43_23 PM.png">
+              <div class="caption">Analytical Engine</div>
+            </div>
+
+          </div>
+
+          <div class="system-box"> </div>
+          <img
+            src="https://images.openai.com/static-rsc-4/TcIoKIMLEfIgZBkA_Ebp6mekOCezjJ09GjtHMZ8Nmn28pFYa2PTcDCAiQ_swMt37J3kLcsFgvoID6Ye57MxqxkCORT5UqVvgnH4uP7fVFzw2b_9kxxRm1a5Oh0q-6Rb0CI5LqKXP9aY229daAz8VNodf_JT3MvGgsNFMYCTKljWF9ure2HDJtW_uVybUGYd7?purpose=fullsize">
+
+
+
+
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ADVANTAGES -->
+
+    <div class="section">
+      <div class="heading purple">2. ADVANTAGES AND DISADVANTAGES</div>
+
+
+        <div class="adv-box">
+
+          <div class="box-title green">Advantages of Computer</div>
+
+          <ul>
+            <li><b>High Speed:</b> Performs millions of calculations in seconds.</li>
+            <li><b>Accuracy:</b> Ensures accuracy in calculations and tasks.</li>
+            <li><b>Storage:</b> Stores large amounts of data and retrieves it quickly.</li>
+            <li><b>Automation:</b> Performs complex tasks automatically.</li>
+            <li><b>Diligence:</b> Works continuously without getting tired.</li>
+            <li><b>Versatility:</b> Can perform both simple and complex tasks.</li>
+            <li><b>Cost Effectiveness:</b> Reduces paperwork and human errors.</li>
+          </ul>
+
+        </div>
+
+        <div class="adv-box">
+
+          <div class="box-title redbg">Disadvantages of Computer</div>
+
+          <ul>
+            <li>Incapable to take any decisions by itself.</li>
+            <li>It cannot judge by itself for any valid or invalid data.</li>
+            <li>Requires regular maintenance.</li>
+          </ul>
+
+          <img class="pc-img" src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5">
+
+        </div>
+
+      </div>
+    </div>
+
+    <!-- HISTORY -->
+
+    <div class="section">
+
+      <div class="heading">3. HISTORY OF COMPUTER</div>
+
+      <div class="history-content">
+
+        <p>
+          The history of automatic data processing began with Charles Babbage's attempt to build an automatic mechanical
+          calculator at Cambridge, England in 1830. The entire computer evolution has been divided into a certain number
+          of generations.
+        </p>
+
+        <ul>
+          <li>First Generation (UNIVAC)</li>
+          <li>Second Generation (IBM 1401)</li>
+          <li>Third Generation (HP 9000)</li>
+          <li>Fourth Generation</li>
+          <li>Fifth Generation</li>
+        </ul>
+
+      </div>
+
+      <div class="gen-card">
+
+        <div class="gen-card">
+
+          <h3>First Generation: (1940s-1950s)</h3>
+          <p>First generation computers (1940s-1950s) used vacuum tubes for processing. They were large in size,
+            consumed
+            high power, and had limited programming capabilities.
+            Examples: ENIAC (Electronic Numerical Integrator and Calculator), EDSAC (Electronic Delay Storage Automatic
+            Calculator), EDVAC (Electronic Discrete Variable Automatic Computer), UNIVAC (Universal Automatic Computer).
+          </p>
+
+          <img
+            src="https://images.openai.com/static-rsc-4/-HxubenJx9t54279mbglbhgrDhDCyRHUKSt5euvBM9nekx3iOG7gIhxJvKIrSvoilAP2G_Iyq9haPHCXwCt1_dLPJPyJLzpwT03dNRjYujMgTLde_bWUg9PNWcZsCIajpYpqhLSYebD_1YStkse881kLTzN7vAGqDy3JeYl3etdwI807Tme-vUkE080zcCwE?purpose=fullsize">
+
+          <img
+            src="https://images.openai.com/static-rsc-4/nR5B3KZL4YWTvNNskJut0VB7CpIit_aErTH-vzrz_zNyvKWK-c1S9gQbKDc4grSzk6cITHIgBkYqqTLJsKVHHUcLzwmAVVmA542BdhFu7T09r4_aKiZIw-rsXbWOiTQo3mkfRncB1pAnJxJjCouTpRhEtnLqJIOv79H8OB_QxIbrhBHT4pPANqQJ1_5k7wOD?purpose=fullsize">
+          <img
+            src="https://images.openai.com/static-rsc-4/Qvt_DMka6_--Ku2zKTmwwhhGIgqNK6hK-X4T8_o6UU-vZiyyarXqZLsvUqfzxGb1CsiaMKmLIW-1QEOk-OOPge7FC2KGKGC4Hi8757uksd4AwnVCnhEivb69Ws_T5LV6CxLNlEeBAdl1GDcNzFEPPJN5KjO_VKS6YzpvXqfFokzAXC81dooDXGoqjslYeTB-?purpose=fullsize">
+          <img
+            src="https://images.openai.com/static-rsc-4/vQ9RAbbEv1lMWV1DANtzygApE4nrinHGdHtVp6yfqesRYW8MNQfBJ8hhgimPPuRgWS9PPnkUEegOfy00xjmNSV_kUHRbI56oif2nMVopdlX3Rah6R8Zp82ervXknyrtMXCkSXJh9zNAuNf43tr1XE2Kdsyut3obECnk7sFFUgYabbME5orcS1U_2_kjHmJyR?purpose=fullsize">
+          <p>Used vacuum tubes and consumed high power.</p>
+
+          <ul>
+            <li>Large size</li>
+            <li>Machine language</li>
+            <li>Generated heat</li>
+          </ul>
+
+        </div>
+
+        <div class="gen-card">
+
+          <h3>Second Generation</h3>
+          <p> Second generation computers used transistors instead of vacuum tubes, making them smaller, faster and more
+            reliable. These computers consumed less power, produced less heat and had improved memory with magnetic core
+            storage.
+            Example: IBM 1401, IBM 7090</p>
+
+          <img
+            src="https://images.openai.com/static-rsc-4/TuY3vsx0zFCYTdHUcgYu7z1t5MN7rk3NMqwRDRINBagoqvm2rCuj6d7rTsOdSF9vJ-55z7jO5Pl_ZFQ_-kJd5BE9KY2jWodOLoCWDpCFNoUVvNsdjPNYU5iEJF770LBPPSSjD9thOfVMu4d3GhI_GPMgAw3OqQvY9cw8OPRI2mdAk7fBsudy6Ee0K6KuvLnG?purpose=fullsize">
+
+          <img
+            src="https://images.openai.com/static-rsc-4/RJW_rZcTS2F2ZXPfMYfNvREJKbWtHJ_R2NuXy58LJ-Jy2inEGCMYOLL0UCdvcsfgB00VAIohnTFu5EYEotlOMOoAP6T_c6X3rgHvfr8GSx2e-yyMZNtZsWvPZ6_sfX0h5ZrNlNYcOLbEeoggO4eNW3dwnY7y9xJ7lfS7l80z2lhB7iZgmZ_k0lRUbS0s1tSO?purpose=fullsize">
+          <img
+            src="https://images.openai.com/static-rsc-4/58yorAmsO4it70I0iclWCKUCDEeQiDzlJzA7uFabPltw4o0AHERVfClg9tpRvtL-CE8TnWXChIF1bvjZ2PRBZvK-dpvq1Jk3Ww6BT3weLkAYDPdl19FoshGfhbRVOuJqXZHsBPCrCYnr2xvpS2TQz7tih7FlV8V6QCHvLxVbCDIBJKn49Zh9NY60Zpt1v-Uz?purpose=fullsize">
+          <img
+            src="https://images.openai.com/static-rsc-4/h0ET0XPDj0vodAfdAt0ts1Avd67XuNBsEnpdTUUijXh2aVFcZnDL4ydoN0ekPX56PSkOgx3r22DeQ-KHTu3quMnNknMTtXGagtDxW3RdYHrhWBQlS3-utfVSBoQbgsAQMb2eDCau2RyBpfHeW2omn1w2vpDSlmswFmzvSDC9WWKlPOAYLDhnhziaZsUctgZD?purpose=fullsize">
+          <img
+            src="https://images.openai.com/static-rsc-4/F80iMZbUG0nU2-tN3x-s5YJzThBqUorUN-5tzBSETJxEpraVHzJJh4S3izZzoiIy8bdJnw_CKZca_U4Z1oBPgzlolp2tnTOObTdFJBLBHHk7NVpscDfbN8OQe7Gmj0KS0u1TBbobj8AkLFa8gm3JUJxyrX7LjQS5FhxmowNeOCKGkVa_r0U1CnM78zDxhnPJ?purpose=fullsize">
+          <p>Used transistors instead of vacuum tubes.</p>
+
+          <ul>
+            <li>Smaller size</li>
+            <li>Less heat</li>
+            <li>More reliable</li>
+          </ul>
+
+        </div>
+
+        <div class="gen-card">
+
+          <h3>Third Generation</h3>
+          <p>The third generation computers replaced transistors with Integrated Circuits known popularly as chips. From
+            Small Scale Integrated (SSI) circuits which had about 10 transistors per chip, technology developed to
+            Medium
+            Scale Integrated (MSI) circuits with 100 transistors per chip.
+            Examples: IBM 360 Series.</p>
+
+          <img
+            src="https://images.openai.com/static-rsc-4/K3Z7BnqYXwgDaFIMaMcsGroh2pZJAH3fW1Cp29QcqvL5vp4YlnwNI2FvXjg7fwWMchiVsNCVafUE3wCXcNImoZBCSFiAbM_xqK16ezWGnsH-JOeWQ3M-juuU-bMK09GclTHXVLGyLvTFsgO8hgZolJxW9THywWBRTyLkZWAZmLiWOhW8hGO4Mq8andG4ofyE?purpose=fullsize">
+
+          <img
+            src="https://images.openai.com/static-rsc-4/iO9SfuGYw1W1gk09QUGTW4FT3grFICEDXQCRlM9eATNWV-3mxhbP35PWnB-e2YLD3N7Faiwc1_DzrUT_zavifvoZbzXSzGX7t85wTSUhaMxQ60GihL6cJG-3XUC6ALxpJ27KBCYfqzZ46Uq9orEM9DRKYnsvEYTy8A7pQVNOsAROXVxSRH1onqaKSGlUdUmY?purpose=fullsize">
+          <img
+            src="https://images.openai.com/static-rsc-4/UKCfiQklycs4WbTiJ4rk_JNJwfAccvL_aqctmwmDpdubbqgRAaIE6e2mCJUMgy3vi5s0ZHCDhdj6Ujb5n8stZOMUOTgKZmp_NLfcS85XIEOVnfmcbSmYoD4ZUI7TNSR9cDIWtEVZmwqVAete630Nsw_C6Hs4oY4YaKr9lFVWzg6AuP5YFlCI9_C4yUaW720D?purpose=fullsize">
+          <img
+            src="https://images.openai.com/static-rsc-4/EC-BV9zejdxlwstpeDA7pQxdgBD1BxXy-AHH1MctZq07ANl2I56iwNOkC2ZR5ZyP1JpM_pXbfIc2ptDsmY02Ltv1rhmhD9x9TO_Sks9UJN3tNZo3Efvhjq8EMkTiqUphntv2g7YPaOsMKlCrxvQTcbQ3R8em3VkodDMJdYgvRY_W50fs_12dG1CfdyhevD1Z?purpose=fullsize">
+
+          <p>Integrated circuits replaced transistors.</p>
+
+          <ul>
+            <li>Faster</li>
+            <li>Reliable</li>
+            <li>Low power</li>
+          </ul>
+
+        </div>
+
+        <div class="gen-card">
+
+          <h3>Fourth Generation</h3>
+          <p>The arrival of the microprocessor chip marked the beginning of fourth generation computers.
+            Medium Scale Integrated (MSI) circuits yielded to Large and Very Large Scale Integrated (VLSI) circuits
+            packing about 50,</p>
+
+          <img
+            src="https://images.openai.com/static-rsc-4/p_5t7yZjsvPvtS0_1tYUtwQRZKH-IFS3xAqBmJYClIEIZnvTFx7DPasCpDKRcAuZNP_Sh_lE9bWkDHaUZ1-PXM2JfKRw7UaMT2u8biUP10JFQFIs93aM8Y_Gnz325DpEIQCNsUQIqUYHicGfd4ghz2WCYIwpbfAQEgJ1pw0UQWAgSCkURq3FNcR6EKwO1PkO?purpose=fullsize">
+          <img
+            src="https://images.openai.com/static-rsc-4/LsnJrk9GRq8IQ3DVwr4j0m0tAFdMJEo0kVfFLBeS7TnrD3r3xpr4EMOndmlI7duj-AU3yCtPT9S9IdHMEb7X6KHorDbtWEg3yKp1jWNqbyKBjpy_uQ_O61PKZ9Go8lMw-n_R_tBSa3BtFSOCnAGXdhO-ZzemcPT2e9hoQNr3rAh-zHUfcJAnDQ8BWXx0unuw?purpose=fullsize">
+
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/IBM360-65-1.corestore.jpg">
+
+          <p>Microprocessor technology introduced.</p>
+
+          <ul>
+            <li>GUI introduced</li>
+            <li>Portable</li>
+            <li>Advanced OS</li>
+          </ul>
+
+        </div>
+
+        <div class="gen-card">
+
+          <h3>Fifth Generation</h3>
+
+          <img
+            src="https://images.openai.com/static-rsc-4/B3w3RAThS4vQalGf0aFrfpu456UPnouY0Lz0NRPTw57tOpltj5SUIbH4HrEMdbBSw0eXHMc1Or6J0Uwa0VsuLiBdQH6BCkRgHXcc40cYGCes8afVmsMseYOqLIHENuQs75cX8O_c8GXNqPXu9_LyeHXhNv9eHujXFPgZ1qzObI1pbuGHTfN2Ydfj6AwwS5nl?purpose=fullsize">
+          <img
+            src="https://images.openai.com/static-rsc-4/Jk4USY6c3Vd0WPd8OpvOG4MLmIhyxSLXIf2SnaZ-8ab3qXw9m1o6V_Ef0Hdqe8AM0-8E6SbUtxVQykqNGNujh12K3XuxPBbMjup7B3HpETwQbLmx4gOBJ6wdaxsx6_xPhyOUMqiRE0LgHMK0MrbbMQwR6t7f71AMXcxEzBAWTgaVjCOV8iTefnDIo5wiioj9?purpose=fullsize">
+          <img
+            src="https://images.openai.com/static-rsc-4/ER6AcZ5ea2tFfJFb28OtIp3hIYGqceoJYAPdnKWheRNgtx6VSsILZ25dfp0yH-hUVxHDVRVAFyPlm67aFL9ToTMS8gHHKys5-y27KXhvavbsTGd2j2XaQ5e7INkE8VMDskhEf4C6FqZE6dm0vZGlqt25dKx3lnH9KRSJg5nieeeZzdxMK2RfQ-Jy7HIpOHQE?purpose=fullsize">
+          <img
+            src="https://images.openai.com/static-rsc-4/_XSjecPN3sldhwIZsgzVv2gtne2PhgUas4YPxoJt8Va2iZ-Txn7b-BLXBEcgufhXUv4gTLx4mSKiyFQYgpju_V9oba-Vv7DHqRXGHfpczFs8maL9USP1S_2Hp2eUeBVXS-llt0gOcvbP1On_rNSS65iru4UtpuBD6ZB40kBNJeep9ztx5MHLvY-VN0sQNYHm?purpose=fullsize">
+          <p>Based on Artificial Intelligence.</p>
+
+          <ul>
+            <li>AI systems</li>
+            <li>Modern computers</li>
+            <li>Smart technology</li>
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- PARTS -->
+
+    <div class="section">
+
+      <div class="heading" style="background:#c02062;">
+        4. MAIN PARTS OF COMPUTER
+      </div>
+
+      <div class="parts-grid">
+
+        <div class="part-card">
+
+          <h3 style="color:#1252aa;">1. INPUT UNIT</h3>
+
+
+        </div>
+        <div class="part-card">
+
+          <h3 style="color:#148847;">2. MEMORY UNIT</h3>
+
+        </div>
+
+        <div class="part-card">
+
+          <h3 style="color:#e16c00;">3. CPU</h3>
+
+
+
+        </div>
+
+        <div class="part-card">
+
+          <h3 style="color:#c02062;">4. OUTPUT UNIT</h3>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- ADD THIS AFTER MAIN PARTS SECTION -->
+
+    <div class="section">
+
+      <div class="heading" style="background:#00695c;">
+      </div>
+
+      <div style="padding:18px;">
+
+        <h2 style="color:#0d47a1; margin-bottom:10px;">
+          1) Input Unit / Ports
+        </h2>
+
+        <p>
+          In computers, an input device is a piece of computer hardware equipment used to provide
+          data and control signals to an information processing system such as a computer.
+        </p>
+
+        <br>
+
+        <p>
+          <b>Examples:</b> Keyboard, Mouse, Scanner, Digital Camera, OMR Reader, Joystick etc.
+        </p>
+
+        <br>
+
+        <div class="multi-img">
+
+          <p>Input devices are used to enter data.</p>
+
+          <img
+            src="https://images.openai.com/static-rsc-4/tnd77z1-JNpsS10YexHFZzKOkB4yT-qfwQ8Myogjt9l1XHfZMT4Th0ZdsefqoPkce4-UgCoWVfNLHyVoUUO6sYKYnEbtiw3d2X3opCx536CSYPNjnY5E_W4b9qcUnIM68uUut7pXrOZxpL95RMoNvigPN7GEGF9cDiBFOJwOq4-fAef_Q60qFDllGQYPN4M4?purpose=fullsize">
+
+        </div>
+
+        <br><br>
+
+        <h2 style="color:#0d47a1; margin-bottom:10px;">
+          2) Memory Unit Part
+        </h2>
+
+        <p>
+          Any storage unit of a computer is known as memory.
+          It is divided into:
+        </p>
+
+        <ul>
+          <li>Primary Memory (Main Memory)</li>
+          <li>Secondary Memory (Storage)</li>
+          <li>Cache Memory</li>
+        </ul>
+
+        <br>
+
+        <!-- PRIMARY MEMORY -->
+
+        <h2 style="color:#00897b; margin-bottom:10px;">
+          i) Primary Memory
+        </h2>
+        <img
+          src="https://images.openai.com/static-rsc-4/Jw5GINZpJNu31RshcH047umVilnZdx-MebeAszJnYQXJG8lIRlL2A697_u6JwUZ5vXRMgLoaZ5YnHx6QWssYJwCAqYK88cmld55JICTamqn811kPn_VhYE11TPxvQzoOFIYz2KpblFp7eTEDXKBZo93eqXaG7EjgK_8T9g88UjZk-ms84bYFaKGhjYgmP5_c?purpose=fullsize">
+        <p>
+          Primary memory is the memory directly accessed by the CPU. It stores data and instructions that the computer
+          is currently using. The primary memory unit is classified into the following:
+        </p>
+
+        <br>
+
+        <h3 style="color:#ef6c00;">
+          (a) RAM (Random Access Memory)
+        </h3>
+
+        <p>
+          RAM is a type of primary memory used by a computer to store data and programs temporarily while they are being
+          used. RAM is a volatile memory (data is lost when the computer is turned off).
+        </p>
+
+        <br>
+
+        <div class="multi-img">
+
+          <img src="https://upload.wikimedia.org/wikipedia/commons/d/db/Swissbit_2GB_PC2-5300U-555.jpg">
+
+          <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Computer_RAM.jpg">
+
+          <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/DDR4_RAM.jpg">
+
+          <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Laptop_RAM.jpg">
+
+        </div>
+
+        <br>
+
+        <h3>Types of RAM:</h3>
+
+        <ul>
+          <li>SRAM (Static RAM)</li>
+          <li>DRAM (Dynamic RAM)</li>
+          <li>SDRAM (Synchronous DRAM)</li>
+          <li>DDR SDRAM</li>
+        </ul>
+
+        <br>
+
+        <p>
+          <b>SRAM:</b> SRAM is a type of RAM that stores data in a static way, meaning it does not need to be refreshed
+          like DRAM (Dynamic RAM).
+        </p>
+
+        <br>
+
+        <p>
+          <b>DRAM:</b> DRAM is the most common type of main memory (RAM) used in computing devices. It stores each bit
+          of data in a tiny capacitor, which needs to be constantly refreshed to retain the data.
+        </p>
+
+        <br>
+
+        <p>
+          <b>SDRAM:</b> It is a type of DRAM that is synchronized with the system clock - meaning it works in step with
+          the CPU to improve performance and efficiency.
+        </p>
+
+        <br>
+
+        <p>
+          <b>DDR SDRAM:</b> An advanced type of SDRAM that can transfer data twice per clock cycle - once on the rising
+          edge and once on the falling edge of the clock signal. This makes it twice as fast as regular SDRAM.
+        </p>
+
+        <br>
+
+        <h3>Versions:</h3>
+
+        <ul>
+          <li>DDR1 - First Version</li>
+          <li>DDR2 - Better Speed</li>
+          <li>DDR3 - Higher Speed</li>
+          <li>DDR4 - Faster Performance</li>
+          <li>DDR5 - Latest Technology</li>
+        </ul>
+
+        <br><br>
+
+        <!-- ROM -->
+
+        <h3 style="color:#ef6c00;">
+          (b) ROM (Read Only Memory)
+        </h3>
+
+        <p>
+          ROM is a non-volatile memory used in computers and electronic devices. It permanently stores data that cannot
+          be easily changed or erased. Unlike RAM, the data in ROM stays even when the power is turned off.
+        </p>
+
+        <br>
+
+        <div class="multi-img">
+
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/EPROM.jpg">
+
+          <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/EEPROM.jpg">
+
+          <img src="https://upload.wikimedia.org/wikipedia/commons/2/28/ROM_chips.jpg">
+
+          <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/EPROM_Intel_C1702A.jpg">
+
+        </div>
+
+        <br>
+
+        <h3>Types of ROM:</h3>
+
+        <ul>
+          <li>PROM</li>
+          <li>EPROM</li>
+          <li>EEPROM</li>
+        </ul>
+
+        <br>
+
+        <p>
+          <b>PROM:</b> PROM is a type of memory chip that is blank when made and can be programmed only once by the
+          user. After programming, the data cannot be changed or erased.
+        </p>
+
+        <br>
+
+        <p>
+          <b>EPROM:</b> EPROM is a type of ROM that can be erased and reused. To erase the data, it needs to be exposed
+          to ultraviolet (UV) light.
+        </p>
+
+        <br>
+
+        <p>
+          <b>EEPROM:</b> EEPROM is a type of ROM that can be erased and rewritten using electricity, without removing
+          the chip from the computer or device.
+        </p>
+
+        <br><br>
+
+        <!-- SECONDARY MEMORY -->
+
+        <h2 style="color:#00897b; margin-bottom:10px;">
+          ii) Secondary Memory
+        </h2>
+
+        <p>
+          Secondary memory, also called Auxiliary memory, is used to store data permanently or for long-term storage.
+          It's non-volatile memory; it retains data even when the power is turned off. It is slower than primary memory
+          (RAM) but provides much longer storage capacity.
+        </p>
+
+        <br>
+
+        <h3>Types of Secondary Memory:</h3>
+
+        <ul>
+          <li>Hard Disk Drive (HDD)</li>
+          <li>Optical Storage</li>
+          <li>SSD (Solid State Drive)</li>
+          <li>USB Flash Drive</li>
+          <li>SD Card</li>
+        </ul>
+
+        <br>
+
+        <!-- HDD -->
+
+        <h3 style="color:#ef6c00;">
+          Hard Disk Drive (HDD)
+        </h3>
+
+        <p>
+          A Hard Disk Drive (HDD) is a data storage device used in computers and other electronic devices. It stores
+          digital information using magnetic storage on one or more rotating platters with head write/read heads that
+          move across the surface to access data.
+        </p>
+
+        <br>
+
+        <div class="multi-img">
+
+          <img src="https://upload.wikimedia.org/wikipedia/commons/0/02/Hard_disk.jpg">
+
+          <img src="https://upload.wikimedia.org/wikipedia/commons/f/f8/Laptop-hard-drive-exposed.jpg">
+
+          <img src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Hard_disk_internal.jpg">
+
+          <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/Hard_Disk.jpg">
+
+        </div>
+
+        <br>
+
+        <h3>Advantages:</h3>
+
+        <ul>
+          <li>Large storage capacity</li>
+          <li>Cost effective</li>
+          <li>Long lifespan</li>
+        </ul>
+
+        <br>
+
+        <h3>Disadvantages:</h3>
+
+        <ul>
+          <li>Slower than SSD</li>
+          <li>Mechanical failure possible</li>
+          <li>Heavy and noisy</li>
+        </ul>
+
+        <br><br>
+
+        <!-- OPTICAL STORAGE -->
+
+        <h3 style="color:#ef6c00;">
+          Optical Storage
+        </h3>
+
+        <p>
+          Optical storage is a type of data storage that uses laser technology to read and write data on a disc surface.
+          It stores data in the form of tiny pits and lands on a reflective surface, typically made of plastic and
+          metal.
+        </p>
+
+        <br>
+
+        <div class="multi-img">
+
+          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/CD-Rom_Drive.jpg">
+
+          <img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/DVD.jpg">
+
+          <img src="https://upload.wikimedia.org/wikipedia/commons/0/02/Blu-ray_disc.jpg">
+
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Compact_disc.jpg">
+
+        </div>
+
+        <br>
+
+        <h3>Common Types:</h3>
+
+        <ul>
+          <li>CD</li>
+          <li>DVD</li>
+          <li>Blu-ray Disc</li>
+          <li>CD-ROM</li>
+          <li>CD-R</li>
+          <li>CD-RW</li>
+        </ul>
+
+        <br>
+
+        <h3>Advantages:</h3>
+
+        <ul>
+          <li>Cheap media</li>
+          <li>Portable</li>
+          <li>Good for archiving</li>
+        </ul>
+
+        <br>
+
+        <h3>Disadvantages:</h3>
+
+        <ul>
+          <li>Slow speed</li>
+          <li>Limited storage</li>
+          <li>Can get scratched</li>
+        </ul>
+
+        <br><br>
+
+        <!-- SSD -->
+
+        <h3 style="color:#ef6c00;">
+          SSD (Solid State Drive)
+        </h3>
+
+        <p>
+          An SSD is a high-speed storage device that uses flash memory to store data. Unlike traditional HDDs, SSDs have
+          no moving parts, making them faster, more reliable and quieter.
+        </p>
+
+        <br>
+
+        <div class="multi-img">
+
+          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/SSD_Samsung.jpg">
+
+          <img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/Solid-state-drive.jpg">
+
+          <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/M2_SSD.jpg">
+
+          <img src="https://upload.wikimedia.org/wikipedia/commons/8/8d/SSD_Inside.jpg">
+
+        </div>
+
+
+
+
+      <!-- ADD THIS BELOW SSD SECTION -->
+
+      <br><br>
+
+      <h3 style="color:#0d47a1;">
+        Types of SSD
+      </h3>
+
+      <br>
+
+      <table style="width:100%; border-collapse:collapse; font-size:15px;text-align:left;">
+
+        <tr style="background:#0d47a1;color:white;">
+          <th style="padding:12px;border:1px solid #ccc;">Type</th>
+          <th style="padding:12px;border:1px solid #ccc;">Interface</th>
+          <th style="padding:12px;border:1px solid #ccc;">Speed Range</th>
+          <th style="padding:12px;border:1px solid #ccc;">Common Use</th>
+        </tr>
+
+        <tr>
+          <td style="padding:12px;border:1px solid #ccc;">SATA SSD</td>
+          <td style="padding:12px;border:1px solid #ccc;">SATA III</td>
+          <td style="padding:12px;border:1px solid #ccc;">~ 500 MB/s</td>
+          <td style="padding:12px;border:1px solid #ccc;">
+            Budget laptops and desktops
+          </td>
+        </tr>
+
+        <tr style="background:#f5f5f5;">
+          <td style="padding:12px;border:1px solid #ccc;">NVMe SSD</td>
+          <td style="padding:12px;border:1px solid #ccc;">PCIe</td>
+          <td style="padding:12px;border:1px solid #ccc;">
+            1500-7000+ MB/s
+          </td>
+          <td style="padding:12px;border:1px solid #ccc;">
+            Gaming, content creation, fast boot
+          </td>
+        </tr>
+
+        <tr>
+          <td style="padding:12px;border:1px solid #ccc;">M.2 SSD</td>
+          <td style="padding:12px;border:1px solid #ccc;">M.2 Slot</td>
+          <td style="padding:12px;border:1px solid #ccc;">
+            SATA or NVMe
+          </td>
+          <td style="padding:12px;border:1px solid #ccc;">
+            Slim laptops, modern PCs
+          </td>
+        </tr>
+
+        <tr style="background:#f5f5f5;">
+          <td style="padding:12px;border:1px solid #ccc;">U.2 / U.3 SSD</td>
+          <td style="padding:12px;border:1px solid #ccc;">
+            PCIe / SAS
+          </td>
+          <td style="padding:12px;border:1px solid #ccc;">
+            Enterprise speeds
+          </td>
+          <td style="padding:12px;border:1px solid #ccc;">
+            Data centers, servers
+          </td>
+        </tr>
+
+        <tr>
+          <td style="padding:12px;border:1px solid #ccc;">
+            External SSD
+          </td>
+          <td style="padding:12px;border:1px solid #ccc;">
+            USB-C / USB-A
+          </td>
+          <td style="padding:12px;border:1px solid #ccc;">
+            Up to ~1000 MB/s
+          </td>
+          <td style="padding:12px;border:1px solid #ccc;">
+            Portable storage
+          </td>
+        </tr>
+
+      </table>
+
+      <br><br>
+
+      <div class="multi-img">
+
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/SSD_Samsung.jpg">
+
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/M2_SSD.jpg">
+
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/Solid-state-drive.jpg">
+
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/8d/SSD_Inside.jpg">
+
+      </div>
+      <!-- ADD THIS BELOW SSD SECTION -->
+
+      <br><br>
+
+      <h3 style="color:#0d47a1;">Advantages of SSD</h3>
+
+      <ul>
+        <li>Faster data access and boot time</li>
+        <li>No moving parts - more durable</li>
+        <li>Consumes less power</li>
+        <li>Generates less heat</li>
+        <li>Silent operation</li>
+        <li>Lightweight and compact</li>
+        <li>Faster file transfer</li>
+        <li>More reliable over time</li>
+      </ul>
+
+      <br>
+
+      <h3 style="color:#d84315;">Disadvantages of SSD</h3>
+
+      <ul>
+        <li>Higher cost per GB</li>
+        <li>Limited write cycles</li>
+        <li>Lower storage capacity</li>
+        <li>Difficult data recovery</li>
+        <li>Performance may degrade</li>
+      </ul>
+
+      <br><br>
+
+      <!-- USB FLASH DRIVE -->
+
+      <h2 style="color:#00695c;">
+        USB Flash Drive
+      </h2>
+
+      <p>
+        A USB Flash Drive (also known as a pen drive, thumb drive, or memory stick) is a portable solid-state storage
+        device that connects to computers and other devices via a USB port. It uses flash memory to store data.
+      </p>
+
+      <br>
+
+      <div class="multi-img">
+
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/38/USB_flash_drive.jpg">
+
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/USB_Flash_Drive.jpg">
+
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/16/Pen_Drive.jpg">
+
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/USB_drive.jpg">
+
+      </div>
+
+      <br>
+
+      <h3>Advantages:</h3>
+      <ul>
+        <li>Highly portable</li>
+        <li>Easy plug-and-play use</li>
+        <li>No moving parts</li>
+        <li>Reusable many times</li>
+        <li>Compatible with many devices</li>
+        <li>Low power consumption</li>
+      </ul>
+
+      <br>
+
+      <h3>Disadvantages:</h3>
+
+      <ul>
+        <li>Easily lost</li>
+        <li>Limited write cycles</li>
+        <li>Can carry viruses</li>
+        <li>Slower than SSDs</li>
+        <li>Lower storage capacity</li>
+      </ul>
+
+      <br><br>
+
+      <!-- SD CARD -->
+
+      <h2 style="color:#00695c;">
+        SD Card (Secure Digital Card)
+      </h2>
+
+      <p>
+        SD Drive (Secure Digital Card): An SD card is a small, portable solid-state storage device that uses flash
+        memory
+        to store data. It is widely used in smartphones, cameras, tablets, drones, and other portable electronics.
+      </p>
+
+      <br>
+
+      <div class="multi-img">
+
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1a/SD_memory_card.jpg">
+
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/8e/MicroSD_card.jpg">
+
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/06/SDHC_Memory_Card.jpg">
+
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/Memory_cards.jpg">
+
+      </div>
+
+      <br><br>
+
+      <!-- CACHE MEMORY -->
+
+      <h2 style="color:#00695c;">
+        Cache Memory
+      </h2>
+
+      <p>
+        Cache memory is a small, high-speed type of volatile memory that sits between the CPU and main memory (RAM). It
+        stores frequently accessed data and instructions to speed up processing.
+      </p>
+      <br>
+
+      <!-- CPU -->
+
+      <h2 style="color:#0d47a1;">
+        CPU (Central Processing Unit)
+      </h2>
+
+      <p>
+        The CPU is the brain of the computer. It performs all calculations, logic operations, and controls other parts
+        of
+        the system.
+      </p>
+
+      <br>
+
+      <div class="multi-img">
+
+        <p>The brain of computer.</p>
+
+        <img
+          src="https://images.openai.com/static-rsc-4/px-LAwkWEpWcoMdyvctXwGlwofIDwH9A2eYGl1NcoLYytrREvNo1u7U7nM-dtOH19WfB1pBZGF0qQN12NybjBGASPXhqGcSO9hFnZ4mpTie4ScKaItPdOPL9aelagcyepMSLFp0RxNmZHHJFBmWCGJLf2MzqEa8HINSmGs1jawD_XECAx42gERLKG36bW-9V?purpose=inline">
+        <img
+          src="https://images.openai.com/static-rsc-4/Gjev3nWeYdnP9ajbaFpXBTfQbzdSLF1lfDB29wF3LsZzGCw_aj-721xVajsi0ikorpFXWGAwRWS_HYE6bM7yzp7J6iTgIgcSMMrXVrsHmXjjETrnfxqf-urVbvrXSJ-rUGaoVfC0s-VcsG0G65AhnDT8YtC_svDXcAsLBy4Ui7bppWu0DZPCG8wiPzcuwlqL?purpose=fullsize">
+
+      </div>
+
+      <br>
+
+      <h3>Main Components:</h3>
+
+      <ul>
+        <li>ALU (Arithmetic Logic Unit)</li>
+        <li>CU (Control Unit)</li>
+        <li>Registers</li>
+        <li>Cache Memory</li>
+        <li>Clock</li>
+      </ul>
+
+      <br>
+
+      <h3>Functions of CPU:</h3>
+
+      <ul>
+        <li>Executes instructions</li>
+        <li>Controls input/output</li>
+        <li>Performs calculations</li>
+        <li>Coordinates hardware components</li>
+      </ul>
+
+      <br>
+
+      <h3>Types of CPU by cores:</h3>
+
+      <ul>
+        <li>Single-core</li>
+        <li>Dual-core</li>
+        <li>Quad-core</li>
+        <li>Octa-core</li>
+      </ul>
+
+      <br><br>
+
+      <!-- OUTPUT UNIT -->
+
+      <h2 style="color:#0d47a1;">
+        Output Unit
+      </h2>
+
+      <p>
+        The output unit is the part of the computer that converts processed data (in binary form) from the CPU into a
+        human-readable format such as text, sound, or images and sends it to output devices.
+        Example:- Monitors, Printer, Speakers, Projector, Headphone, plotter.
+      </p>
+      <div class="multi-img"></div>
+      <img
+        src="https://images.openai.com/static-rsc-4/lDFL_l_lKObLl5tgPlz2-k-itfHk2qeS9jVoaHHMwfxvdIqByo5ioz7oY-mSfkzV_jycQPVWYwnMiJKPhsOGZu898JtGWWeOf9ilE8XgZB5ZKIODuyrBOYRZtWz3Xok5raFLx2hxE6Fic0e5Our_o_qiGkT-xhnwhORhgcCckaTdCtFs-U5Zlj3MroSEe3Km?purpose=fullsize">
+
+
+
+      <br>
+
+
+      <br>
+
+
+      <br><br>
+
+      <!-- SOFTWARE -->
+
+      <h2 style="color:#00695c;">
+        Software
+      </h2>
+
+      <p>
+        Software is a collection of programs, instructions, or data used to operate computers and perform specific
+        tasks.
+        It
+        tells the hardware what to do and how to do it.
+      </p>
+
+      <br>
+
+      <h3>Types of Software:</h3>
+
+      <ul>
+        <li>
+          <b>System Software:</b>
+          Windows, Linux, Android, MacOS
+        </li>
+
+        <li>
+          <b>Application Software:</b>
+          MS Word, Google Chrome
+        </li>
+      </ul>
+
+      <br><br>
+
+      <!-- HARDWARE -->
+
+      <h2 style="color:#00695c;">
+        Hardware
+      </h2>
+
+      <p>
+        Hardware refers to the physical parts of a computer that you can see and touch. It includes all the mechanical
+        and
+        electronic components that make up a computer system.
+      </p>
+
+      <br>
+
+      <ul>
+        <li>Input Devices</li>
+        <li>Output Devices</li>
+        <li>Storage Devices</li>
+        <li>Processing Devices (CPU)</li>
+      </ul>
+
+      <br><br>
+
+      <!-- GPU -->
+
+      <h2 style="color:#0d47a1;">
+        GPU (Graphics Processing Unit)
+      </h2>
+
+      <p>
+        A GPU is a specialized electronic chip designed to handle graphics and visual processing. It was originally
+        built
+        for rendering images, videos, and 3D models in real-time - but now it's also used in AI, gaming, data science,
+        and
+        video editing.
+      </p>
+
+      <br>
+
+      <div class="multi-img">
+
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/Nvidia_GPU.jpg">
+
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/80/AMD_GPU.jpg">
+
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/0d/Graphics_card.jpg">
+
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/RTX_GPU.jpg">
+
+      </div>
+
+      <br>
+
+      <h3>Types of GPU:</h3>
+
+      <ul>
+        <li>Integrated GPU</li>
+        <li>Dedicated GPU</li>
+        <li>Workstation GPU</li>
+        <li>External GPU (eGPU)</li>
+      </ul>
+
+      <br>
+
+      <h3>Common Uses of GPU:</h3>
+
+      <ul>
+        <li><b>Gaming :</b> Renders 3D graphics, effects, and textures smoothly. Enables high FPS (frames per second)
+          gameplay.</li>
+        <li><b>Video Editing:</b> Accelerates video rendering and playback. Speeds up effects and transitions in editing
+          software.</li>
+        <li><b>Graphic Design: </b>Helps with high-resolution image editing. Speeds up filters, layers, and 3D animation
+          rendering.</li>
+        <li><b>Artificial Intelligence & Machine Learning: </b>Trains deep learning models much faster than CPU. Used in
+          TensorFlow, PyTorch, etc.</li>
+        <li><b>3D Modeling and CAD Applications: </b>Renders 3D objects, architectural plans, and simulations. Used in
+          AutoCAD, Blender, SolidWorks.</li>
+        <li><b>Watching High-Resolution Videos (4K/8K):</b> GPU decodes HD/4K videos for smooth playback. Used in
+          YouTube,
+          Netflix, VLC media player.</li>
+      </ul>
+    </div>
+  </div>
+</body>
+
+</html>

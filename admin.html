@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ECE Admin Panel</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+        }
+
+        .admin-login {
+
+            width: 100%;
+            height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .login-card {
+
+            width: 400px;
+
+            background: #fff;
+
+            padding: 35px;
+
+            border-radius: 15px;
+
+            box-shadow: 0 10px 30px rgba(0, 0, 0, .1);
+
+        }
+
+        .login-card h2 {
+
+            text-align: center;
+
+            margin-bottom: 25px;
+
+        }
+
+        .login-card input {
+
+            width: 100%;
+
+            padding: 14px;
+
+            margin-bottom: 15px;
+
+            border: 1px solid #ccc;
+
+            border-radius: 10px;
+
+            box-sizing: border-box;
+
+        }
+
+        .login-card button {
+
+            width: 100%;
+
+            padding: 14px;
+
+            border: none;
+
+            border-radius: 10px;
+
+            background: #2563eb;
+
+            color: #fff;
+
+            font-size: 16px;
+
+            cursor: pointer;
+
+        }
+
+        .dashboard {
+
+            display: none;
+
+        }
+
+        .sidebar {
+
+            position: fixed;
+
+            left: 0;
+
+            top: 0;
+
+            width: 240px;
+
+            height: 100vh;
+
+            background: #0f172a;
+
+            color: #fff;
+
+        }
+
+        .sidebar h2 {
+
+            text-align: center;
+
+            padding: 20px 0;
+
+        }
+
+        .sidebar a {
+
+            display: block;
+
+            padding: 15px 25px;
+
+            color: #fff;
+
+            text-decoration: none;
+
+        }
+
+        .sidebar a:hover {
+
+            background: #1e293b;
+
+        }
+
+        .main {
+
+            margin-left: 240px;
+
+            padding: 30px;
+
+        }
+
+        .card-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+
+            gap: 20px;
+
+        }
+
+        .card {
+
+            background: #fff;
+
+            padding: 25px;
+
+            border-radius: 12px;
+
+            box-shadow: 0 5px 15px rgba(0, 0, 0, .08);
+
+            text-align: center;
+
+        }
+
+        .card h3 {
+
+            margin-bottom: 10px;
+
+        }
+
+        .logout {
+
+            background: #dc2626;
+
+            color: #fff;
+
+            border: none;
+
+            padding: 12px 20px;
+
+            border-radius: 10px;
+
+            cursor: pointer;
+
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="admin-login" id="loginPage">
+
+        <div class="login-card">
+
+            <h2>Admin Login</h2>
+
+            <input type="text" id="adminUser" placeholder="Username">
+
+            <input type="password" id="adminPass" placeholder="Password">
+
+            <button onclick="adminLogin()">
+
+                Login
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="dashboard" id="dashboard">
+
+        <div class="sidebar">
+
+            <h2>ECE Admin</h2>
+
+            <a href="#">🏠 Dashboard</a>
+
+            <a href="#">👨‍🎓 Students</a>
+
+            <a href="#">📚 Notes</a>
+
+            <a href="#">📄 Upload PDF</a>
+
+            <a href="#">⚙ Settings</a>
+
+            <a href="#" onclick="logoutAdmin()">
+
+                🚪 Logout
+
+            </a>
+
+        </div>
+
+        <div class="main">
+
+            <h1>
+
+                Welcome Admin 👋
+
+            </h1>
+
+            <div class="card-grid">
+
+                <div class="card">
+
+                    <h3>Total Students</h3>
+
+                    <h1 id="totalStudents">
+
+                        0
+
+                    </h1>
+
+                </div>
+
+                <div class="card">
+
+                    <h3>Total Notes</h3>
+
+                    <h1 id="totalNotes">0</h1>
+
+                </div>
+
+                <div class="card">
+
+                    <h3>Total Courses</h3>
+
+                    <h1 id="totalCourses">
+
+                        4
+
+                    </h1>
+
+                </div>
+
+                <div class="card">
+
+                    <h3>Visitors</h3>
+
+                    
+                    <h1 id="totalVisitor">0</h1>
+
+                </div>
+
+            </div>
+
+            <br>
+
+            <!-- ================= STUDENT MANAGEMENT ================= -->
+
+            <section id="students">
+
+                <h2>👨‍🎓 Student Management</h2>
+
+                <br>
+
+                <input type="text" id="searchStudent" placeholder="Search Student..." onkeyup="searchStudent()" style="
+width:100%;
+padding:12px;
+margin-bottom:20px;
+border:1px solid #ccc;
+border-radius:8px;">
+
+                <table id="studentTable" border="1" width="100%" cellpadding="10" style="
+border-collapse:collapse;
+background:#fff;">
+
+                    <thead>
+
+                        <tr style="
+background:#2563eb;
+color:white;">
+
+                            <th>Name</th>
+
+                            <th>Email</th>
+
+                            <th>Course</th>
+
+                            <th>Action</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="studentBody">
+
+                    </tbody>
+
+                </table>
+
+            </section>
+
+            <button class="logout" onclick="logoutAdmin()">
+
+                Logout
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= NOTES MANAGEMENT ================= -->
+
+    <section id="notes">
+
+        <h2>📚 Notes Management</h2>
+
+        <br>
+
+        <input type="text" id="noteTitle" placeholder="Note Title">
+
+        <br><br>
+
+        <input type="text" id="noteId" placeholder="Note ID (Example: CF101)">
+
+        <br><br>
+
+        <input type="text" id="noteFile" placeholder="HTML File Name (Example: cf101.html)">
+
+        <br><br>
+
+        <button onclick="addNote()">
+
+            ➕ Add Note
+
+        </button>
+
+        <br><br>
+        
+        <div id="courseList"></div>
+
+        <table border="1" width="100%" cellpadding="10" style="border-collapse:collapse;">
+
+            <thead>
+
+                <tr style="background:#2563eb;color:white;">
+
+                    <th>Title</th>
+
+                    <th>Note ID</th>
+
+                    <th>File</th>
+
+                    <th>Action</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="noteBody">
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+
+    <!-- ================= COURSES MANAGEMENT ================= -->
+
+<section id="courses">
+
+    <h2>📚 Course Management</h2>
+
+    <br>
+
+    <input
+        type="text"
+        id="courseName"
+        placeholder="Course Name">
+
+    <br><br>
+
+    <input
+        type="text"
+        id="courseDuration"
+        placeholder="Duration">
+
+    <br><br>
+
+    <input
+        type="number"
+        id="courseFees"
+        placeholder="Fees">
+
+    <br><br>
+
+    <textarea
+        id="courseDescription"
+        placeholder="Course Description">
+    </textarea>
+
+    <br><br>
+
+    <button onclick="addCourse()">
+        ➕ Add Course
+    </button>
+
+</section>
+
+
+    <script>
+
+       // ==========================
+// ADMIN LOGIN
+// ==========================
+
+async function adminLogin() {
+
+    const username = document
+        .getElementById("adminUser")
+        .value
+        .trim();
+
+    const password = document
+        .getElementById("adminPass")
+        .value;
+
+    if (!username || !password) {
+
+        alert("Enter Username & Password ❌");
+        return;
+
+    }
+
+    try {
+
+        const response = await fetch("/admin/login", {
+
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify({
+
+                username,
+                password
+
+            })
+
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+
+            localStorage.setItem(
+                "adminToken",
+                data.token
+            );
+
+            document.getElementById("loginPage")
+                .style.display = "none";
+
+            document.getElementById("dashboard")
+                .style.display = "block";
+
+            alert("Welcome Admin ✅");
+
+            loadStudents();
+
+            loadNotes();
+
+            loadDashboard();
+
+        } else {
+
+            alert(data.message);
+
+        }
+
+    }
+
+    catch (error) {
+
+        console.error(error);
+
+        alert("Server Connection Error ❌");
+
+    }
+
+}
+
+      function logoutAdmin(){
+
+    localStorage.removeItem("adminToken");
+
+    location.reload();
+
+}
+
+
+
+
+        // ==========================
+        // STUDENT LIST
+        // ==========================
+
+        let students = [];
+
+        async function loadStudents() {
+
+    const token = localStorage.getItem("adminToken");
+
+    try {
+
+        const response = await fetch("/students", {
+
+            headers: {
+                Authorization: "Bearer " + token
+            }
+
+        });
+
+        const students = await response.json();
+
+        showStudents(students);
+
+        document.getElementById("totalStudents").innerText =
+            students.length;
+
+    } catch (error) {
+
+        console.error(error);
+
+        alert("Unable to load students.");
+
+    }
+
+}
+
+        function showStudents(data) {
+
+            const tbody =
+                document.getElementById("studentBody");
+
+            tbody.innerHTML = "";
+
+            data.forEach((student, index) => {
+
+                tbody.innerHTML += `
+
+<tr>
+
+<td>${student.name}</td>
+
+<td>${student.email}</td>
+
+<td>${student.course || "-"}</td>
+
+<td>
+
+<button
+onclick="deleteStudent('${student._id}')">
+
+Delete
+
+</button>
+
+</td>
+
+</tr>
+
+`;
+
+            });
+
+        }
+
+        // ==========================
+        // SEARCH
+        // ==========================
+
+        function searchStudent() {
+
+            const keyword =
+                document.getElementById("searchStudent")
+                    .value
+                    .toLowerCase();
+
+            const result =
+                students.filter(student =>
+
+                    student.name
+                        .toLowerCase()
+                        .includes(keyword)
+
+                    ||
+
+                    student.email
+                        .toLowerCase()
+                        .includes(keyword)
+
+                );
+
+            showStudents(result);
+
+        }
+
+        // ==========================
+        // DELETE
+        // ==========================
+
+        async function deleteStudent(id) {
+
+    if (!confirm("Delete Student?")) return;
+
+    const token = localStorage.getItem("adminToken");
+
+    await fetch("/students/" + id, {
+
+        method: "DELETE",
+
+        headers: {
+
+            Authorization: "Bearer " + token
+
+        }
+
+    });
+
+    loadStudents();
+
+}
+        window.onload = () => {
+
+            loadStudents();
+
+        };
+
+
+        // ==========================
+        // NOTES
+        // ==========================
+
+        let notes = [];
+
+        async function loadNotes() {
+
+    const token = localStorage.getItem("adminToken");
+
+    const response = await fetch("/notes", {
+
+        headers: {
+
+            Authorization: "Bearer " + token
+
+        }
+
+    });
+
+    const notes = await response.json();
+
+    showNotes(notes);
+
+}
+
+        function showNotes(data) {
+
+            const body =
+                document.getElementById("noteBody");
+
+            body.innerHTML = "";
+
+            data.forEach(note => {
+
+                body.innerHTML += `
+
+<tr>
+
+<td>${note.title}</td>
+
+<td>${note.noteId}</td>
+
+<td>${note.file}</td>
+
+<td>
+
+<button
+onclick="deleteNote('${note._id}')">
+
+Delete
+
+</button>
+
+</td>
+
+</tr>
+
+`;
+
+            });
+
+        }
+
+       async function addNote() {
+
+    const token = localStorage.getItem("adminToken");
+
+    const title =
+        document.getElementById("noteTitle").value;
+
+    const noteId =
+        document.getElementById("noteId").value;
+
+    const file =
+        document.getElementById("noteFile").value;
+
+    const response = await fetch("/notes", {
+
+        method: "POST",
+
+        headers: {
+
+            "Content-Type": "application/json",
+
+            Authorization: "Bearer " + token
+
+        },
+
+        body: JSON.stringify({
+
+            title,
+            noteId,
+            file
+
+        })
+
+    });
+
+    const data = await response.json();
+
+    alert(data.message);
+
+    loadNotes();
+
+}
+
+       async function deleteNote(id) {
+
+    const token = localStorage.getItem("adminToken");
+
+    await fetch("/notes/" + id, {
+
+        method: "DELETE",
+
+        headers: {
+
+            Authorization: "Bearer " + token
+
+        }
+
+    });
+
+    loadNotes();
+
+}
+
+window.onload = () => {
+
+    const token = localStorage.getItem("adminToken");
+
+    if(token){
+
+        document.getElementById("loginPage").style.display="none";
+
+        document.getElementById("dashboard").style.display="block";
+
+        loadStudents();
+
+        loadNotes();
+
+        loadCourses();
+        
+        loadDashboard();
+
+    }
+
+};
+
+
+async function loadCourses() {
+
+    const token = localStorage.getItem("adminToken");
+
+    try {
+
+        const response = await fetch("/courses", {
+            headers: {
+                Authorization: "Bearer " + token
+            }
+        });
+
+        const courses = await response.json();
+
+        showCourses(courses);
+
+        console.log("Courses:", courses);
+
+    } catch (error) {
+
+        console.error("Course loading error:", error);
+
+    }
+
+}
+
+
+
+async function addCourse() {
+
+    const token = localStorage.getItem("adminToken");
+
+    const name =
+        document.getElementById("courseName").value.trim();
+
+    const duration =
+        document.getElementById("courseDuration").value.trim();
+
+    const fees =
+        document.getElementById("courseFees").value;
+
+    const description =
+        document.getElementById("courseDescription").value.trim();
+
+    if (!name || !duration || !fees) {
+
+        alert("Please fill Course Name, Duration and Fees ❌");
+        return;
+
+    }
+
+    try {
+
+        const response = await fetch("/courses", {
+
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer " + token
+            },
+
+            body: JSON.stringify({
+                name,
+                duration,
+                fees,
+                description
+            })
+
+        });
+
+        const data = await response.json();
+
+        alert(data.message);
+
+        if (data.success) {
+
+            document.getElementById("courseName").value = "";
+            document.getElementById("courseDuration").value = "";
+            document.getElementById("courseFees").value = "";
+            document.getElementById("courseDescription").value = "";
+
+            loadCourses();
+
+        }
+
+    } catch (error) {
+
+        console.error(error);
+
+        alert("Unable to add course ❌");
+
+    }
+
+}
+
+function showCourses(data) {
+
+    const courseList =
+        document.getElementById("courseList");
+
+    if (!courseList) return;
+
+    courseList.innerHTML = "";
+
+    data.forEach(course => {
+
+        courseList.innerHTML += `
+
+            <div style="
+                background:white;
+                padding:15px;
+                margin:10px 0;
+                border-radius:10px;
+                box-shadow:0 3px 10px rgba(0,0,0,.08);
+            ">
+
+                <h3>${course.name}</h3>
+                
+
+                <button onclick="deleteCourse('${course._id}')">
+                🗑️ Delete
+                </button>
+
+
+                <p>Duration: ${course.duration}</p>
+
+                <p>Fees: ₹${course.fees}</p>
+
+                <p>${course.description || ""}</p>
+
+            </div>
+
+        `;
+
+    });
+
+}
+
+async function deleteCourse(id) {
+
+    if (!confirm("Delete this course?")) {
+        return;
+    }
+
+    const token = localStorage.getItem("adminToken");
+
+    try {
+
+        const response = await fetch("/courses/" + id, {
+
+            method: "DELETE",
+
+            headers: {
+                "Authorization": "Bearer " + token
+            }
+
+        });
+
+        const data = await response.json();
+
+        alert(data.message);
+
+        if (data.success) {
+            loadCourses();
+        }
+
+    } catch (error) {
+
+        console.error(error);
+        alert("Delete Failed ❌");
+
+    }
+
+}
+
+// ==========================
+// DASHBOARD STATS
+// ==========================
+
+async function loadDashboard() {
+
+    const token = localStorage.getItem("adminToken");
+
+    try {
+
+        const response = await fetch("/dashboard/stats", {
+
+            headers: {
+
+                Authorization: "Bearer " + token
+
+            }
+
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+
+            document.getElementById("totalStudents").innerText =
+                data.totalStudents;
+
+            document.getElementById("totalNotes").innerText =
+                data.totalNotes;
+
+        }
+
+    }
+
+    catch (error) {
+
+        console.error(error);
+
+    }
+
+}
+    </script>
+
+</body>
+
+</html>
